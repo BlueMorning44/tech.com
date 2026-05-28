@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회사이름 | Unity Content Creator</title>
+    <title>블루모닝 유니티 콘텐츠 제작소</title>
+    <meta name="description" content="유니티 기반 3D 콘텐츠, XR, 메타버스 제작 전문 기업 블루모닝 사이트입니다.">
+    <meta name="keywords" content="유니티, Unity, 3D콘텐츠, 외주제작, 포트폴리오">
+
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -83,8 +86,8 @@
         .video-bg-container iframe {
             position: absolute;
             top: 50%; left: 50%;
-            width: 100vw; height: 56.25vw; /* 16:9 Aspect Ratio */
-            min-height: 100vh; min-width: 177.77vh; /* 16:9 Aspect Ratio */
+            width: 100vw; height: 56.25vw;
+            min-height: 100vh; min-width: 177.77vh;
             transform: translate(-50%, -50%);
             pointer-events: none;
         }
@@ -92,7 +95,7 @@
         .video-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6); /* 어두운 오버레이로 텍스트 가독성 확보 */
+            background: rgba(0, 0, 0, 0.6);
             z-index: -1;
         }
 
@@ -182,7 +185,9 @@
         .portfolio-item:hover .portfolio-overlay { opacity: 1; }
         
         .portfolio-overlay h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            padding: 0 20px;
+            text-align: center;
             transform: translateY(20px);
             transition: transform 0.3s ease;
         }
@@ -193,20 +198,21 @@
         .tech-container {
             display: flex;
             justify-content: center;
-            gap: 50px;
+            gap: 40px;
             flex-wrap: wrap;
         }
         .tech-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            width: 110px;
             color: var(--text-secondary);
-            transition: color 0.3s;
+            transition: color 0.3s, transform 0.3s;
         }
-        .tech-item:hover { color: var(--accent-color); }
-        .tech-item i { font-size: 4rem; }
-        .tech-item span { font-weight: 600; }
+        .tech-item:hover { color: var(--accent-color); transform: translateY(-5px); }
+        .tech-item i { font-size: 3.5rem; }
+        .tech-item span { font-size: 0.95rem; font-weight: 600; text-align: center; }
 
         /* ================= Contact Section ================= */
         .contact-container {
@@ -216,25 +222,16 @@
         }
         .contact-container p {
             color: var(--text-secondary);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             font-size: 1.1rem;
         }
         .contact-info {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
         }
-        .btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: var(--text-primary);
-            color: var(--bg-color);
-            border-radius: 30px;
-            font-weight: 700;
-            margin-top: 20px;
-            transition: opacity 0.3s;
-        }
-        .btn:hover { opacity: 0.8; }
+        .contact-info i { margin-right: 10px; color: var(--text-secondary); }
 
         footer {
             text-align: center;
@@ -281,17 +278,20 @@
         /* ================= Responsive ================= */
         @media (max-width: 768px) {
             header { padding: 15px 20px; }
-            .nav-links { display: none; /* 모바일에서는 심플하게 메뉴 숨김 또는 햄버거 메뉴로 대체 가능 */ }
-            .hero-content h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 2.3rem; }
             .about-grid, .portfolio-grid { grid-template-columns: 1fr; }
             .modal-content { width: 95%; }
+            .tech-container { gap: 20px; }
+            .tech-item { width: 80px; }
+            .tech-item i { font-size: 2.8rem; }
         }
     </style>
 </head>
 <body>
 
     <header id="header">
-        <div class="logo">회사이름</div>
+        <div class="logo">블루모닝</div>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
@@ -336,42 +336,42 @@
         <h2 class="section-title">Portfolio</h2>
         <div class="portfolio-grid">
             <div class="portfolio-item" data-video-id="여기에_유튜브ID입력_1">
-                <img src="https://via.placeholder.com/800x450/222/fff?text=Project+1" alt="포트폴리오 1">
+                <img src="https://picsum.photos/800/450?random=1" alt="포트폴리오 1">
                 <div class="portfolio-overlay">
-                    <h3>판타지 세계관 기반 인터랙티브 콘텐츠</h3>
+                    <h3>프로젝트 제목 1</h3>
                 </div>
             </div>
             
             <div class="portfolio-item" data-video-id="여기에_유튜브ID입력_2">
-                <img src="https://via.placeholder.com/800x450/222/fff?text=Project+2" alt="포트폴리오 2">
+                <img src="https://picsum.photos/800/450?random=2" alt="포트폴리오 2">
                 <div class="portfolio-overlay">
                     <h3>프로젝트 제목 2</h3>
                 </div>
             </div>
 
             <div class="portfolio-item" data-video-id="여기에_유튜브ID입력_3">
-                <img src="https://via.placeholder.com/800x450/222/fff?text=Project+3" alt="포트폴리오 3">
+                <img src="https://picsum.photos/800/450?random=3" alt="포트폴리오 3">
                 <div class="portfolio-overlay">
                     <h3>프로젝트 제목 3</h3>
                 </div>
             </div>
 
             <div class="portfolio-item" data-video-id="여기에_유튜브ID입력_4">
-                <img src="https://via.placeholder.com/800x450/222/fff?text=Project+4" alt="포트폴리오 4">
+                <img src="https://picsum.photos/800/450?random=4" alt="포트폴리오 4">
                 <div class="portfolio-overlay">
                     <h3>프로젝트 제목 4</h3>
                 </div>
             </div>
 
             <div class="portfolio-item" data-video-id="여기에_유튜브ID입력_5">
-                <img src="https://via.placeholder.com/800x450/222/fff?text=Project+5" alt="포트폴리오 5">
+                <img src="https://picsum.photos/800/450?random=5" alt="포트폴리오 5">
                 <div class="portfolio-overlay">
                     <h3>프로젝트 제목 5</h3>
                 </div>
             </div>
 
             <div class="portfolio-item" data-video-id="여기에_유튜브ID입력_6">
-                <img src="https://via.placeholder.com/800x450/222/fff?text=Project+6" alt="포트폴리오 6">
+                <img src="https://picsum.photos/800/450?random=6" alt="포트폴리오 6">
                 <div class="portfolio-overlay">
                     <h3>프로젝트 제목 6</h3>
                 </div>
@@ -383,25 +383,28 @@
         <h2 class="section-title">Tech Stack</h2>
         <div class="tech-container">
             <div class="tech-item"><i class="fa-brands fa-unity"></i><span>Unity</span></div>
-            <div class="tech-item"><i class="fa-solid fa-blender"></i><span>Blender</span></div>
-            <div class="tech-item"><i class="fa-brands fa-html5"></i><span>HTML/CSS</span></div>
-            <div class="tech-item"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
-            <div class="tech-item"><i class="fa-brands fa-github"></i><span>Git</span></div>
+            <div class="tech-item"><i class="fa-solid fa-vr-cardboard"></i><span>VR</span></div>
+            <div class="tech-item"><i class="fa-solid fa-mobile-screen-button"></i><span>AR</span></div>
+            <div class="tech-item"><i class="fa-solid fa-headset"></i><span>MR</span></div>
+            <div class="tech-item"><i class="fa-solid fa-cube"></i><span>3D</span></div>
+            <div class="tech-item"><i class="fa-solid fa-vector-square"></i><span>2D</span></div>
+            <div class="tech-item"><i class="fa-solid fa-wand-magic-sparkles"></i><span>FX</span></div>
         </div>
     </section>
 
     <section id="contact">
         <div class="contact-container">
             <h2 class="section-title">Contact</h2>
-            <p>외주 및 협업 문의는 언제든 환영합니다. 아래 이메일로 연락주시면 빠르게 답변드리겠습니다.</p>
-            <div class="contact-info">hello@company.com</div>
-            <div class="contact-info">010-1234-5678</div>
-            <a href="mailto:hello@company.com" class="btn">이메일 보내기</a>
-        </div>
+            <p>외주 및 협업 문의는 언제든 환영합니다. 아래 연락처로 연락주시면 빠르게 답변드리겠습니다.</p>
+            
+            <div class="contact-info"><i class="fa-regular fa-envelope"></i>ponom4724@gmail.com</div>
+            <div class="contact-info"><i class="fa-solid fa-phone"></i>010-6417-4724</div>
+            
+            </div>
     </section>
 
     <footer>
-        &copy; 2026 회사이름. All rights reserved.
+        &copy; 2026 블루모닝. All rights reserved.
     </footer>
 
     <div id="videoModal" class="modal">
@@ -412,7 +415,7 @@
     </div>
 
     <script>
-        // 1. Header Scrolled Effect
+        // Header Scrolled Effect
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -422,33 +425,28 @@
             }
         });
 
-        // 2. Video Modal Logic
+        // Video Modal Logic
         const modal = document.getElementById('videoModal');
         const modalIframe = document.getElementById('modalIframe');
         const closeBtn = document.querySelector('.close-btn');
         const portfolioItems = document.querySelectorAll('.portfolio-item');
 
-        // 포트폴리오 아이템 클릭 시 모달 열기
         portfolioItems.forEach(item => {
             item.addEventListener('click', () => {
                 const videoId = item.getAttribute('data-video-id');
-                // iframe에 유튜브 주소 삽입 (자동 재생 포함)
                 modalIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
                 modal.classList.add('active');
             });
         });
 
-        // 모달 닫기 로직 (영상 소리 끄기를 위해 src 초기화)
         function closeModal() {
             modal.classList.remove('active');
             setTimeout(() => {
                 modalIframe.src = '';
-            }, 300); // 트랜지션 시간 후 소스 제거
+            }, 300);
         }
 
         closeBtn.addEventListener('click', closeModal);
-
-        // 모달 배경 클릭 시 닫기
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 closeModal();
