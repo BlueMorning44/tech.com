@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>블루모닝 유니티 콘텐츠 제작소</title>
-    <meta name="description" content="유니티 기반 3D 콘텐츠, XR, 메타버스 제작 전문 기업 블루모닝 사이트입니다.">
+    <title>블루모닝 유니티 콘텐츠 제작소 | 포트폴리오</title>
+    <meta name="description" content="유니티 기반 3D 콘텐츠, XR, 메타버스 제작 전문 1인 기업 블루모닝의 포트폴리오 사이트입니다.">
     <meta name="keywords" content="유니티, Unity, 3D콘텐츠, 외주제작, 포트폴리오">
 
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
     <style>
         /* ================= Reset & Base ================= */
         :root {
@@ -24,7 +21,9 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: 'Pretendard', sans-serif;
@@ -58,7 +57,11 @@
         .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; }
 
         .nav-links { display: flex; gap: 30px; }
-        .nav-links li a { font-size: 1rem; font-weight: 500; transition: color 0.3s; }
+        .nav-links li a {
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
         .nav-links li a:hover { color: var(--text-secondary); }
 
         /* ================= Hero Section ================= */
@@ -90,50 +93,365 @@
         }
 
         .video-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6); z-index: -1;
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
         }
 
-        .hero-content h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; animation: fadeInDown 1s ease; }
-        .hero-content p { font-size: 1.2rem; color: var(--text-secondary); animation: fadeInUp 1s ease 0.3s forwards; opacity: 0; }
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+        }
 
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         /* ================= Section Layout ================= */
-        section:not(#hero) { padding: 100px 10vw; }
-        .section-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 50px; text-align: center; }
+        section:not(#hero) {
+            padding: 100px 10vw;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+        }
 
         /* ================= About Section ================= */
-        .about-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .about-card { background: var(--surface-color); padding: 40px 30px; border-radius: 12px; text-align: center; transition: transform 0.3s; }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .about-card {
+            background: var(--surface-color);
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
         .about-card:hover { transform: translateY(-10px); }
         .about-card i { font-size: 3rem; margin-bottom: 20px; color: var(--accent-color); }
         .about-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
         .about-card p { color: var(--text-secondary); font-size: 0.95rem; }
 
         /* ================= Portfolio Section ================= */
-        .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .portfolio-item { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 16 / 9; cursor: pointer; }
-        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .portfolio-overlay {
-            position: absolute; inset: 0; background: rgba(0, 0, 0, 0.8);
-            display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            cursor: pointer;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
         .portfolio-item:hover img { transform: scale(1.05); }
         .portfolio-item:hover .portfolio-overlay { opacity: 1; }
-        .portfolio-overlay h3 { font-size: 1.1rem; padding: 0 20px; text-align: center; transform: translateY(20px); transition: transform 0.3s ease; }
+        
+        .portfolio-overlay h3 {
+            font-size: 1.1rem;
+            padding: 0 20px;
+            text-align: center;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
         .portfolio-item:hover .portfolio-overlay h3 { transform: translateY(0); }
 
         /* ================= Tech Stack Section ================= */
         #tech { background-color: var(--surface-color); }
-        .tech-container { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
-        .tech-item { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 110px; color: var(--text-secondary); transition: color 0.3s, transform 0.3s; }
+        .tech-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            width: 110px;
+            color: var(--text-secondary);
+            transition: color 0.3s, transform 0.3s;
+        }
         .tech-item:hover { color: var(--accent-color); transform: translateY(-5px); }
         .tech-item i { font-size: 3.5rem; }
         .tech-item span { font-size: 0.95rem; font-weight: 600; text-align: center; }
 
         /* ================= Contact Section ================= */
-        .contact-container { text-align: center; max-width: 600px; margin: 0 auto; }
-        .contact-container p { color: var(--text-secondary); margin-bottom: 40px; font-size: 1.1rem; }
-        .contact-info { font-size: 1.4rem; font-weight: 700; margin-bottom: 15px; letter-spacing: 0.5px;
+        .contact-container {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-container p {
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        .contact-info {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+        .contact-info i { margin-right: 10px; color: var(--text-secondary); }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ================= Modal ================= */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active { display: flex; opacity: 1; }
+
+        .modal-content {
+            position: relative;
+            width: 80%;
+            max-width: 1000px;
+            aspect-ratio: 16 / 9;
+        }
+
+        .modal-content iframe {
+            width: 100%; height: 100%; border: none;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -40px; right: 0;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* ================= Responsive ================= */
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; }
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 2.3rem; }
+            .about-grid, .portfolio-grid { grid-template-columns: 1fr; }
+            .modal-content { width: 95%; }
+            .tech-container { gap: 20px; }
+            .tech-item { width: 80px; }
+            .tech-item i { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="logo">블루모닝</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#tech">Tech Stack</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+
+    <section id="hero">
+        <div class="video-bg-container">
+            <iframe src="https://www.youtube.com/embed/여기에_배경유튜브ID입력?autoplay=1&mute=1&loop=1&playlist=여기에_배경유튜브ID입력&controls=0&showinfo=0&autohide=1" frameborder="0" allow="autoplay; fullscreen"></iframe>
+        </div>
+        <div class="video-overlay"></div>
+        <div class="hero-content">
+            <h1>가상과 현실을 잇는 크리에이티브</h1>
+            <p>유니티 기반의 압도적인 인터랙티브 경험을 제공합니다.</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-grid">
+            <div class="about-card">
+                <i class="fa-brands fa-unity"></i>
+                <h3>Unity Development</h3>
+                <p>기획부터 개발까지, 유니티 엔진을 활용한 고품질 콘텐츠를 제작합니다.</p>
+            </div>
+            <div class="about-card">
+                <i class="fa-solid fa-cube"></i>
+                <h3>3D Modeling</h3>
+                <p>몰입감 넘치는 세계를 위한 최적화된 3D 에셋과 애니메이션을 구축합니다.</p>
+            </div>
+            <div class="about-card">
+                <i class="fa-solid fa-gamepad"></i>
+                <h3>Interactive Content</h3>
+                <p>사용자와 상호작용하는 게임, 시뮬레이션, 실감형 미디어를 구현합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2 class="section-title">Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item" data-video-id="여기에_유튜브ID입력_1">
+                <img src="https://picsum.photos/800/450?random=1" alt="포트폴리오 1">
+                <div class="portfolio-overlay">
+                    <h3>프로젝트 제목 1</h3>
+                </div>
+            </div>
+            
+            <div class="portfolio-item" data-video-id="여기에_유튜브ID입력_2">
+                <img src="https://picsum.photos/800/450?random=2" alt="포트폴리오 2">
+                <div class="portfolio-overlay">
+                    <h3>프로젝트 제목 2</h3>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-video-id="여기에_유튜브ID입력_3">
+                <img src="https://picsum.photos/800/450?random=3" alt="포트폴리오 3">
+                <div class="portfolio-overlay">
+                    <h3>프로젝트 제목 3</h3>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-video-id="여기에_유튜브ID입력_4">
+                <img src="https://picsum.photos/800/450?random=4" alt="포트폴리오 4">
+                <div class="portfolio-overlay">
+                    <h3>프로젝트 제목 4</h3>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-video-id="여기에_유튜브ID입력_5">
+                <img src="https://picsum.photos/800/450?random=5" alt="포트폴리오 5">
+                <div class="portfolio-overlay">
+                    <h3>프로젝트 제목 5</h3>
+                </div>
+            </div>
+
+            <div class="portfolio-item" data-video-id="여기에_유튜브ID입력_6">
+                <img src="https://picsum.photos/800/450?random=6" alt="포트폴리오 6">
+                <div class="portfolio-overlay">
+                    <h3>프로젝트 제목 6</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech">
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="tech-container">
+            <div class="tech-item"><i class="fa-brands fa-unity"></i><span>Unity</span></div>
+            <div class="tech-item"><i class="fa-solid fa-vr-cardboard"></i><span>VR</span></div>
+            <div class="tech-item"><i class="fa-solid fa-mobile-screen-button"></i><span>AR</span></div>
+            <div class="tech-item"><i class="fa-solid fa-headset"></i><span>MR</span></div>
+            <div class="tech-item"><i class="fa-solid fa-cube"></i><span>3D</span></div>
+            <div class="tech-item"><i class="fa-solid fa-vector-square"></i><span>2D</span></div>
+            <div class="tech-item"><i class="fa-solid fa-wand-magic-sparkles"></i><span>FX</span></div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Contact</h2>
+            <p>외주 및 협업 문의는 언제든 환영합니다. 아래 연락처로 연락주시면 빠르게 답변드리겠습니다.</p>
+            
+            <div class="contact-info"><i class="fa-regular fa-envelope"></i>blue     morning@email.com</div>
+            <div class="contact-info"><i class="fa-solid fa-phone"></i>010-1234-5678</div>
+            
+            </div>
+    </section>
+
+    <footer>
+        &copy; 2026 블루모닝. All rights reserved.
+    </footer>
+
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <i class="fa-solid fa-xmark close-btn"></i>
+            <iframe id="modalIframe" src="" allow="autoplay; fullscreen"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Header Scrolled Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Video Modal Logic
+        const modal = document.getElementById('videoModal');
+        const modalIframe = document.getElementById('modalIframe');
+        const closeBtn = document.querySelector('.close-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        portfolioItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const videoId = item.getAttribute('data-video-id');
+                modalIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                modal.classList.add('active');
+            });
+        });
+
+        function closeModal() {
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modalIframe.src = '';
+            }, 300);
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
