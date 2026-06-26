@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>블루모닝 유니티 콘텐츠 제작소</title>
-    <meta name="description" content="유니티 기반 3D 콘텐츠, XR, 메타버스 제작 전문 기업 블루모닝 사이트입니다.">
-    <meta name="keywords" content="유니티, Unity, 3D콘텐츠, 외주제작, 포트폴리오">
+    <meta name="description" content="유니티 기반 3D 콘텐츠, XR, 가상현실(VR/AR/MR) 및 인터랙티브 실감형 미디어 제작 전문 기업 블루모닝입니다.">
+    <meta name="keywords" content="블루모닝, 블루모닝스튜디오, 유니티외주, Unity, 3D콘텐츠, XR개발, VR제작, 메타버스, 게임외주, 포트폴리오">
+    <meta name="author" content="블루모닝">
     <link rel="icon" href="logo2.png" type="image/png">
 
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="블루모닝 유니티 콘텐츠 제작소">
+    <meta property="og:description" content="가상과 현실을 잇는 크리에이티브. 유니티 기반 고품질 인터랙티브 경험 제공.">
+    <meta property="og:image" content="logo2.png"> <meta property="og:url" content="https://BlueMorning44.github.io/"> <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
@@ -58,9 +62,24 @@
 
         .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; }
 
+        .nav-container { display: flex; align-items: center; gap: 40px; }
         .nav-links { display: flex; gap: 30px; }
         .nav-links li a { font-size: 1rem; font-weight: 500; transition: color 0.3s; }
         .nav-links li a:hover { color: var(--text-secondary); }
+
+        /* [추가] 언어 전환 버튼 스타일 */
+        .lang-switcher {
+            display: flex;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: rgba(255,255,255,0.07);
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .lang-btn { cursor: pointer; color: var(--text-secondary); transition: color 0.3s; }
+        .lang-btn.active { color: var(--text-primary); font-weight: 800; }
 
         /* ================= Hero Section ================= */
         #hero {
@@ -79,15 +98,6 @@
             z-index: -2;
             overflow: hidden;
             background-color: #000;
-        }
-
-        .video-bg-container iframe {
-            position: absolute;
-            top: 50%; left: 50%;
-            width: 100vw; height: 56.25vw;
-            min-height: 100vh; min-width: 177.77vh;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
         }
 
         .video-overlay {
@@ -142,7 +152,7 @@
 
         footer { text-align: center; padding: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); font-size: 0.9rem; }
 
-        /* ================= [수정됨] Slider Modal ================= */
+        /* ================= Slider Modal ================= */
         .modal {
             position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95);
             z-index: 1000; display: none; align-items: center; justify-content: center;
@@ -150,7 +160,6 @@
         }
         .modal.active { display: flex; opacity: 1; }
 
-        /* 스와이프 모달 컨테이너 크기 */
         .modal-content {
             position: relative;
             width: 90%; max-width: 1200px; height: 80vh;
@@ -162,26 +171,13 @@
             font-size: 2rem; cursor: pointer; z-index: 1001;
         }
 
-        /* Swiper 라이브러리 커스텀 스타일 */
         .swiper { width: 100%; height: 100%; }
-        .swiper-slide {
-            display: flex; align-items: center; justify-content: center; background: #000;
-        }
-        
-        /* 사진은 비율 유지하며 꽉 차게(크게) 보임 */
-        .swiper-slide img {
-            width: 100%; height: 100%; object-fit: contain;
-        }
+        .swiper-slide { display: flex; align-items: center; justify-content: center; background: #000; }
+        .swiper-slide img { width: 100%; height: 100%; object-fit: contain; }
 
-        /* 영상 컨테이너 */
-        .video-container {
-            position: relative; width: 100%; max-width: 1000px; aspect-ratio: 16 / 9;
-        }
-        .video-container iframe {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
-        }
+        .video-container { position: relative; width: 100%; max-width: 1000px; aspect-ratio: 16 / 9; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        /* Swiper 화살표 색상 */
         .swiper-button-next, .swiper-button-prev { color: rgba(255,255,255,0.7); }
         .swiper-button-next:hover, .swiper-button-prev:hover { color: #fff; }
         .swiper-pagination-bullet { background: #fff; opacity: 0.5; }
@@ -191,6 +187,7 @@
         @media (max-width: 768px) {
             header { padding: 15px 20px; }
             .nav-links { display: none; }
+            .nav-container { gap: 15px; }
             .hero-content h1 { font-size: 2.3rem; }
             .about-grid, .portfolio-grid { grid-template-columns: 1fr; }
             .modal-content { width: 100%; height: 60vh; border-radius: 0; }
@@ -205,136 +202,141 @@
 
     <header id="header">
         <a href="#hero" class="logo">블루모닝</a>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#tech">Tech Stack</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div class="nav-container">
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about" data-i18n="menu-about">About</a></li>
+                    <li><a href="#portfolio" data-i18n="menu-portfolio">Portfolio</a></li>
+                    <li><a href="#tech" data-i18n="menu-tech">Tech Stack</a></li>
+                    <li><a href="#contact" data-i18n="menu-contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="lang-switcher">
+                <span class="lang-btn active" onclick="switchLanguage('ko')">KR</span>
+                <span>|</span>
+                <span class="lang-btn" onclick="switchLanguage('en')">EN</span>
+            </div>
+        </div>
     </header>
 
-    <section id="hero">
-       <div class="video-bg-container">
-            <video src="https://cdn.pixabay.com/video/2021/09/27/89894-616430996_large.mp4" 
-                   autoplay loop muted playsinline 
-                   style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
-            </video>
-        </div>
-        <div class="video-overlay"></div>
-        <div class="hero-content">
-            <h1>가상과 현실을 잇는 크리에이티브</h1>
-            <p>유니티 기반의 압도적인 인터랙티브 경험을 제공합니다.</p>
-        </div>
-    </section>
+    <main>
+        <section id="hero">
+           <div class="video-bg-container">
+                <video src="https://cdn.pixabay.com/video/2021/09/27/89894-616430996_large.mp4" 
+                       autoplay loop muted playsinline 
+                       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+                </video>
+            </div>
+            <div class="video-overlay"></div>
+            <div class="hero-content">
+                <h1 data-i18n="hero-title">가상과 현실을 잇는 크리에이티브</h1>
+                <p data-i18n="hero-subtitle">유니티 기반의 압도적인 인터랙티브 경험을 제공합니다.</p>
+            </div>
+        </section>
 
-    <section id="about">
-        <h2 class="section-title">About Us</h2>
-        <div class="about-grid">
-            <div class="about-card">
-                <i class="fa-brands fa-unity"></i>
-                <h3>Unity Development</h3>
-                <p>기획부터 개발까지, 유니티 엔진을 활용한<br>고품질 콘텐츠를 제작합니다.</p>
-            </div>
-            <div class="about-card">
-                <i class="fa-solid fa-cube"></i>
-                <h3>3D Modeling</h3>
-                <p>몰입감 넘치는 세계를 위한 최적화된<br>3D 에셋과 애니메이션을 구축합니다.</p>
-            </div>
-            <div class="about-card">
-                <i class="fa-solid fa-gamepad"></i>
-                <h3>Interactive Content</h3>
-                <p>사용자와 상호작용하는 게임, 시뮬레이션,<br>실감형 미디어를 구현합니다.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio">
-        <h2 class="section-title">Portfolio</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-item" data-project="project1">
-                <img src="P_SpaceBattleShip/0.png" alt="우주 정복하기 - 방치형 게임">
-                <div class="portfolio-overlay">
-                    <h3>우주 정복하기 - 방치형 게임</h3>
+        <section id="about">
+            <h2 class="section-title" data-i18n="about-title">About Us</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <i class="fa-brands fa-unity"></i>
+                    <h3 data-i18n="about-card1-title">Unity Development</h3>
+                    <p data-i18n="about-card1-desc">기획부터 개발까지, 유니티 엔진을 활용한<br>고품질 콘텐츠를 제작합니다.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fa-solid fa-cube"></i>
+                    <h3 data-i18n="about-card2-title">3D Modeling</h3>
+                    <p data-i18n="about-card2-desc">몰입감 넘치는 세계를 위한 최적화된<br>3D 에셋 and 애니메이션을 구축합니다.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <h3 data-i18n="about-card3-title">Interactive Content</h3>
+                    <p data-i18n="about-card3-desc">사용자와 상호작용하는 게임, 시뮬레이션,<br>실감형 미디어를 구현합니다.</p>
                 </div>
             </div>
-            
-            <div class="portfolio-item" data-project="project2">
-                <img src="P_CyberSpace/0.jpg" alt="사이버 스페이스">
-                <div class="portfolio-overlay">
-                    <h3>한국철도기술연구원 - 사이버 스페이스</h3>
+        </section>
+
+        <section id="portfolio">
+            <h2 class="section-title" data-i18n="portfolio-title">Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-project="project1">
+                    <img src="P_SpaceBattleShip/0.png" alt="우주 정복하기">
+                    <div class="portfolio-overlay">
+                        <h3 data-i18n="p1-title">우주 정복하기 - 방치형 게임</h3>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-project="project2">
+                    <img src="P_CyberSpace/0.jpg" alt="사이버 스페이스">
+                    <div class="portfolio-overlay">
+                        <h3 data-i18n="p2-title">한국철도기술연구원 - 사이버 스페이스</h3>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-project="project3">
+                    <img src="P_DungeonBreaker/0.png" alt="던전 브레이커">
+                    <div class="portfolio-overlay">
+                        <h3 data-i18n="p3-title">던전 브레이커</h3>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-project="project4">
+                    <img src="P_RhythmPiano/0.png" alt="리듬 피아노">
+                    <div class="portfolio-overlay">
+                        <h3 data-i18n="p4-title">리듬 피아노</h3>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-project="project5">
+                    <img src="P_Bangdeokkung/0.png" alt="덩덕쿵 장구놀이">
+                    <div class="portfolio-overlay">
+                        <h3 data-i18n="p5-title">덩덕쿵 장구놀이</h3>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-project="project6">
+                    <img src="P_HaeroHaeroFairyTale/0.png" alt="해로해로카드 동화">
+                    <div class="portfolio-overlay">
+                        <h3 data-i18n="p6-title">인터렉티브 동화 - 해로해로카드 동화</h3>
+                    </div>
                 </div>
             </div>
-            
-            <div class="portfolio-item" data-project="project3">
-                <img src="P_DungeonBreaker/0.png" alt="던전 브레이커">
-                <div class="portfolio-overlay">
-                    <h3>던전 브레이커</h3>
-                </div>
+        </section>
+
+        <section id="tech">
+            <h2 class="section-title" data-i18n="tech-title">Tech Stack</h2>
+            <div class="tech-container">
+                <div class="tech-item"><i class="fa-brands fa-unity"></i><span>Unity</span></div>
+                <div class="tech-item"><i class="fa-solid fa-vr-cardboard"></i><span>VR</span></div>
+                <div class="tech-item"><i class="fa-solid fa-mobile-screen-button"></i><span>AR</span></div>
+                <div class="tech-item"><i class="fa-solid fa-headset"></i><span>MR</span></div>
+                <div class="tech-item"><i class="fa-solid fa-cube"></i><span>3D</span></div>
+                <div class="tech-item"><i class="fa-solid fa-vector-square"></i><span>2D</span></div>
+                <div class="tech-item"><i class="fa-solid fa-wand-magic-sparkles"></i><span>FX</span></div>
             </div>
+        </section>
 
-            <div class="portfolio-item" data-project="project4">
-                <img src="P_RhythmPiano/0.png" alt="리듬 피아노">
-                <div class="portfolio-overlay">
-                    <h3>리듬 피아노</h3>
-                </div>
+        <section id="contact">
+            <div class="contact-container">
+                <h2 class="section-title" data-i18n="contact-title">Contact</h2>
+                <p data-i18n="contact-desc">외주 및 협업 문의는 언제든 환영합니다.<br>아래 e-mail로 연락주시면 빠르게 답변드리겠습니다.</p>
+                <div class="contact-info"><i class="fa-regular fa-envelope"></i>contact@bluemorningstudio.com</div>
             </div>
-
-            <div class="portfolio-item" data-project="project5">
-                <img src="P_Bangdeokkung/0.png" alt="덩덕쿵 장구놀이">
-                <div class="portfolio-overlay">
-                    <h3>덩덕쿵 장구놀이</h3>
-                </div>
-            </div>
-
-            <div class="portfolio-item" data-project="project6">
-                <img src="P_HaeroHaeroFairyTale/0.png" alt="해로해로카드 동화">
-                <div class="portfolio-overlay">
-                    <h3>인터렉티브 동화 - 해로해로카드 동화</h3>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="tech">
-        <h2 class="section-title">Tech Stack</h2>
-        <div class="tech-container">
-            <div class="tech-item"><i class="fa-brands fa-unity"></i><span>Unity</span></div>
-            <div class="tech-item"><i class="fa-solid fa-vr-cardboard"></i><span>VR</span></div>
-            <div class="tech-item"><i class="fa-solid fa-mobile-screen-button"></i><span>AR</span></div>
-            <div class="tech-item"><i class="fa-solid fa-headset"></i><span>MR</span></div>
-            <div class="tech-item"><i class="fa-solid fa-cube"></i><span>3D</span></div>
-            <div class="tech-item"><i class="fa-solid fa-vector-square"></i><span>2D</span></div>
-            <div class="tech-item"><i class="fa-solid fa-wand-magic-sparkles"></i><span>FX</span></div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="contact-container">
-            <h2 class="section-title">Contact</h2>
-            <p>외주 및 협업 문의는 언제든 환영합니다.<br>아래 e-mail로 연락주시면 빠르게 답변드리겠습니다.</p>
-            
-            <div class="contact-info"><i class="fa-regular fa-envelope"></i>contact@bluemorningstudio.com</div>
-            
-            </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
-        &copy; 블루모닝. All rights reserved.
+        &copy; <span data-i18n="footer-text">블루모닝. All rights reserved.</span>
     </footer>
 
     <div id="videoModal" class="modal">
         <div class="modal-content">
             <i class="fa-solid fa-xmark close-btn"></i>
-            
             <div class="swiper mySwiper">
-                <div class="swiper-wrapper" id="swiperWrapper">
-                    </div>
+                <div class="swiper-wrapper" id="swiperWrapper"></div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-pagination"></div>
             </div>
-
         </div>
     </div>
 
@@ -352,10 +354,106 @@
         });
 
         /* =========================================================
-           [데이터 세팅] 
-           각 프로젝트별로 보여줄 사진과 영상을 배열 형태로 정리합니다.
-           type이 'image'면 사진, 'youtube'면 영상이 출력됩니다.
+           [다국어 번역 딕셔너리 자료형]
+           여기서 영어 버전에 들어갈 문구들을 수정하실 수 있습니다.
         ========================================================= */
+        const translations = {
+            ko: {
+                "menu-about": "About",
+                "menu-portfolio": "Portfolio",
+                "menu-tech": "Tech Stack",
+                "menu-contact": "Contact",
+                "hero-title": "가상과 현실을 잇는 크리에이티브",
+                "hero-subtitle": "유니티 기반의 압도적인 인터랙티브 경험을 제공합니다.",
+                "about-title": "About Us",
+                "about-card1-title": "Unity Development",
+                "about-card1-desc": "기획부터 개발까지, 유니티 엔진을 활용한<br>고품질 콘텐츠를 제작합니다.",
+                "about-card2-title": "3D Modeling",
+                "about-card2-desc": "몰입감 넘치는 세계를 위한 최적화된<br>3D 에셋과 애니메이션을 구축합니다.",
+                "about-card3-title": "Interactive Content",
+                "about-card3-desc": "사용자와 상호작용하는 게임, 시뮬레이션,<br>실감형 미디어를 구현합니다.",
+                "portfolio-title": "Portfolio",
+                "p1-title": "우주 정복하기 - 방치형 게임",
+                "p2-title": "한국철도기술연구원 - 사이버 스페이스",
+                "p3-title": "던전 브레이커",
+                "p4-title": "리듬 피아노",
+                "p5-title": "덩덕쿵 장구놀이",
+                "p6-title": "인터렉티브 동화 - 해로해로카드 동화",
+                "tech-title": "Tech Stack",
+                "contact-title": "Contact",
+                "contact-desc": "외주 및 협업 문의는 언제든 환영합니다.<br>아래 e-mail로 연락주시면 빠르게 답변드리겠습니다.",
+                "footer-text": "블루모닝. All rights reserved."
+            },
+            en: {
+                "menu-about": "About",
+                "menu-portfolio": "Portfolio",
+                "menu-tech": "Tech Stack",
+                "menu-contact": "Contact",
+                "hero-title": "Connecting Virtual and Reality",
+                "hero-subtitle": "We deliver overwhelming interactive experiences based on Unity.",
+                "about-title": "About Us",
+                "about-card1-title": "Unity Development",
+                "about-card1-desc": "From planning to deployment, we build high-quality<br>contents using Unity Engine.",
+                "about-card2-title": "3D Modeling",
+                "about-card2-desc": "We construct optimized 3D assets and animations<br>for immersive worlds.",
+                "about-card3-title": "Interactive Content",
+                "about-card3-desc": "We implement games, simulations, and immersive media<br>that interact with users.",
+                "portfolio-title": "Portfolio",
+                "p1-title": "Space Conquest - Idle Game",
+                "p2-title": "KRRI - Cyber Space",
+                "p3-title": "Dungeon Breaker",
+                "p4-title": "Rhythm Piano",
+                "p5-title": "Deongdeokkung Janggu Play",
+                "p6-title": "Interactive Story - HaeroHaero Card",
+                "tech-title": "Tech Stack",
+                "contact-title": "Contact",
+                "contact-desc": "Inquiries for outsourcing and collaboration are always welcome.<br>Contact us via e-mail and we will respond shortly.",
+                "footer-text": "Blue Morning. All rights reserved."
+            }
+        };
+
+        // 언어 변경 함수
+        function switchLanguage(lang) {
+            // 1. 모든 다국어 타겟 엘리먼트 번역 교체
+            document.querySelectorAll('[data-i18n]').forEach(elem => {
+                const key = elem.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    elem.innerHTML = translations[lang][key];
+                }
+            });
+
+            // 2. 버튼 활성화 상태 표시 변경
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            const activeBtn = event ? event.target : null;
+            if (activeBtn && activeBtn.classList.contains('lang-btn')) {
+                activeBtn.classList.add('active');
+            } else {
+                // 초기 실행 등 event가 없는 경우 강제 매핑
+                document.querySelectorAll('.lang-switcher .lang-btn').forEach(btn => {
+                    if(btn.textContent.toLowerCase() === lang) btn.classList.add('active');
+                });
+            }
+
+            // 3. 브라우저 html lang 속성 업데이트 (구글 로봇 인식용)
+            document.documentElement.lang = lang;
+        }
+
+        // [추가] 브라우저 기본 언어 감지하여 초기 언어 세팅
+        window.addEventListener('DOMContentLoaded', () => {
+            const userLang = navigator.language || navigator.userLanguage;
+            if (userLang.startsWith('en')) {
+                switchLanguage('en');
+                // 버튼 상태 맞추기
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    if(btn.textContent === 'EN') btn.classList.add('active');
+                    else btn.classList.remove('active');
+                });
+            }
+        });
+
+        // Portfolio Media Data
         const projectData = {
             project1: [
                 { type: 'image', url: 'P_SpaceBattleShip/0.png' },
@@ -372,7 +470,6 @@
                 { type: 'image', url: 'P_CyberSpace/2.jpeg' }, 
                 { type: 'image', url: 'P_CyberSpace/3.jpg' }
             ],
-            
             project3: [
                 { type: 'image', url: 'P_DungeonBreaker/0.png' }, 
                 { type: 'image', url: 'P_DungeonBreaker/1.png' }, 
@@ -384,7 +481,6 @@
                 { type: 'image', url: 'P_DungeonBreaker/7.png' }, 
                 { type: 'image', url: 'P_DungeonBreaker/8.png' }
             ],
-            
             project4: [
                 { type: 'image', url: 'P_RhythmPiano/0.png' }, 
                 { type: 'image', url: 'P_RhythmPiano/1.png' }, 
@@ -392,7 +488,6 @@
                 { type: 'image', url: 'P_RhythmPiano/3.png' }, 
                 { type: 'image', url: 'P_RhythmPiano/4.png' }
             ],
-            
             project5: [
                 { type: 'image', url: 'P_Bangdeokkung/0.png' },
                 { type: 'image', url: 'P_Bangdeokkung/1.png' },
@@ -400,7 +495,6 @@
                 { type: 'image', url: 'P_Bangdeokkung/3.png' },
                 { type: 'image', url: 'P_Bangdeokkung/4.png' }
             ],
-            
             project6: [
                 { type: 'youtube', id: 'PSOwc_3R8Y8' },                           
                 { type: 'image', url: 'P_HaeroHaeroFairyTale/0.png' }, 
@@ -412,7 +506,6 @@
                 { type: 'image', url: 'P_HaeroHaeroFairyTale/6.png' }, 
                 { type: 'image', url: 'P_HaeroHaeroFairyTale/7.png' }
             ],
-            // 데이터가 없는 프로젝트는 썸네일 이미지 한 장만 띄우도록 자동 처리됩니다.
         };
 
         // Video & Image Modal Logic
@@ -420,35 +513,25 @@
         const swiperWrapper = document.getElementById('swiperWrapper');
         const closeBtn = document.querySelector('.close-btn');
         const portfolioItems = document.querySelectorAll('.portfolio-item');
-        let swiperInstance = null; // 스와이퍼 객체 초기화
+        let swiperInstance = null;
 
-        // 포트폴리오 아이템 클릭 이벤트
         portfolioItems.forEach(item => {
             item.addEventListener('click', () => {
                 const projectId = item.getAttribute('data-project');
-                
-                // 해당 프로젝트의 데이터 가져오기 (없으면 썸네일을 1번 이미지로 사용)
-                const mediaList = projectData[projectId] || [
-                    { type: 'image', url: item.querySelector('img').src }
-                ];
+                const mediaList = projectData[projectId] || [{ type: 'image', url: item.querySelector('img').src }];
 
-                // 모달 안의 슬라이드 내용 비우기
                 swiperWrapper.innerHTML = '';
 
-                // 데이터 수만큼 슬라이드(HTML) 동적 생성
                 mediaList.forEach(media => {
                     let slideContent = '';
                     if (media.type === 'image') {
-                        // 사진: 원본 비율을 유지하며 화면에 꽉 차게(크게) 보여줌
-                        slideContent = `<img src="${media.url}" alt="포트폴리오 이미지">`;
+                        slideContent = `<img src="${media.url}" alt="Portfolio Image">`;
                     } else if (media.type === 'youtube') {
-                        // 영상: 16:9 비율 유지하며 재생 가능한 유튜브 프레임 삽입
                         slideContent = `
                             <div class="video-container">
                                 <iframe src="https://www.youtube.com/embed/${media.id}?autoplay=0" frameborder="0" allow="autoplay; fullscreen"></iframe>
                             </div>`;
-                    }else if (media.type === 'video') {
-                        // 깃허브 MP4 직접 업로드 영상 처리
+                    } else if (media.type === 'video') {
                         slideContent = `
                             <div class="video-container">
                                 <video src="${media.url}" controls autoplay muted playsinline style="width: 100%; height: 100%; object-fit: contain;"></video>
@@ -457,37 +540,25 @@
                     swiperWrapper.innerHTML += `<div class="swiper-slide">${slideContent}</div>`;
                 });
 
-                // Swiper 슬라이더 활성화 (기존에 켜져있었다면 파괴 후 재시작)
-                if (swiperInstance) {
-                    swiperInstance.destroy(true, true);
-                }
+                if (swiperInstance) { swiperInstance.destroy(true, true); }
                 swiperInstance = new Swiper('.mySwiper', {
                     navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
                     pagination: { el: '.swiper-pagination', clickable: true },
-                    grabCursor: true,   // 마우스로 잡고 끌 수 있는 커서 아이콘
-                    spaceBetween: 30,   // 슬라이드 간의 간격
+                    grabCursor: true,
+                    spaceBetween: 30,
                 });
 
-                // 모달 띄우기
                 modal.classList.add('active');
             });
         });
 
-        // 모달 닫기 함수
         function closeModal() {
             modal.classList.remove('active');
-            setTimeout(() => {
-                swiperWrapper.innerHTML = ''; // HTML 비우기 (재생 중인 유튜브 소리 차단 목적)
-            }, 300);
+            setTimeout(() => { swiperWrapper.innerHTML = ''; }, 300);
         }
 
         closeBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => {
-            // 모달 바깥쪽(검은 배경) 클릭 시 닫기
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
+        modal.addEventListener('click', (e) => { if (e.target === modal) { closeModal(); } });
     </script>
 </body>
 </html>
